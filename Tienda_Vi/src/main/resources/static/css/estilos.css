@@ -8,7 +8,7 @@ body{
     font-family: sans-serif;
     margin: 0;
 }
-header{
+.encabezado {
     position: fixed;
     background-color: #ff6633;
     color: white;
@@ -47,7 +47,7 @@ footer{
     bottom: 0;
     height: 20px;
 }
-a{
+.nav-menu-link{
     text-decoration: none;
     font-size: 20px;
     color: white;
@@ -55,7 +55,38 @@ a{
     border-radius: 5px;
 }
 
-a:hover{
+.nav-menu-link:hover{
     background-color: #cc6600;
+    
+}
+.navegacion{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    
+    
+}
+.nav-link{
+    color: white;
+    text-decoration: none;
+    
+}
+.logo{
+    font-size: 32px;
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 100px;
+    
+}
+.nav-menu{
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+}
+.nav-menu-item{
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 100px;
+    
     
 }
