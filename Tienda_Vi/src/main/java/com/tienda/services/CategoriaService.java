@@ -9,5 +9,9 @@ public interface CategoriaService {
     //arraylist de objetos Categoria. todos o solo los activos
     public List<Categoria> getCategorias(boolean activos);
     
+    public Categoria getCategoria(Categoria categoria);
     
+    public void delete(Categoria categoria);
+    
+    public void save(Categoria categoria);
 }
