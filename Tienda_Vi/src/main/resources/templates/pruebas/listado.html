@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <!--
-Esta es mipriera pagina dinamica -->
+Esta es mipriera de listado de productos  -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    
+
     <head th:replace="~{layout/plantilla :: head}">
         <title>Techshop</title>
         <meta charset="UTF-8"/>   
     </head>
     <body>
-        
-<header th:replace="~{layout/plantilla :: header}"/>
 
-        <h3> AQUI FALTA LO DE ASOCIACIONES, VER CLASE DE HOY,</h3>
-        <h3>xd</h3>
-        
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+        <header th:replace="~{pruebas/fragmentos :: tabsCategorias}"/>
+        <header th:replace="~{pruebas/fragmentos :: tarjetas}"/>
+
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>
