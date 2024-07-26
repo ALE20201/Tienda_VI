@@ -8,14 +8,14 @@
     <body>
         <!-- 1 Sección para crear los tabs de las categorias-->
         <section th:fragment="tabsCategorias" class=" bg-light">
-
-            <div class="row py-4">
+            <div class="row p-4">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link" href="/pruebas/listado">[[#{pruebas.todas}]]</a>
                     </li>
                     <li class="nav-item" th:each="c : ${categorias}">
-                        <a class="nav-link" th:href="@{/pruebas/listado} + ${c.idCategoria}">[[${c.descripcion}]]</a>
+                        <a class="nav-link" 
+                           th:href="@{/pruebas/listado/} + ${c.idCategoria}">[[${c.descripcion}]]</a>
                     </li>
 
                 </ul>
@@ -44,7 +44,7 @@
 
         <!-- 3 Sección para crear consultas   despues editas qui para la tarea-->
         <section th:fragment="consultas" class=" bg-light">
-            <div class="row row-cols-3 m-2">
+            <div class="row row-cols-4 m-2">
                 <div class="card p-2">
                     <form method="get"
                           th:action="@{/pruebas/consulta1}">
@@ -138,7 +138,28 @@
                     </form>
                 </div>
                 
-                
+                <div class="card p-2">
+                    <form method="get"
+                          th:action="@{/pruebas/consulta4}">
+                        <div class="card-header bg-primary text-center text-white">
+                            <h4>Pruebas tarea</h4>
+                        </div>
+                        <div class="mb-3">
+                            <label for="precioInf">Precio Mayor o igual a</label>
+                            <input type="number"
+                                   class="form-control"
+                                   th:value="${precioSelect}"
+                                   th:name="precioSelect"
+                                   required="true"/>
+                            
+                        </div>
+                        <div class="card-footer bg-secondary text-center">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-magnifying-glass"></i>pruebas tarea
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 
             </div>
         </section>

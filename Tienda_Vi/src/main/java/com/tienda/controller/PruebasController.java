@@ -1,18 +1,14 @@
 package com.tienda.controller;
 
 import com.tienda.domain.Categoria;
-import com.tienda.domain.Producto;
 import com.tienda.services.CategoriaService;
 import com.tienda.services.ProductoService;
-import com.tienda.services.FirebaseStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/pruebas")
@@ -27,10 +23,8 @@ public class PruebasController {
     public String listado(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
-
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-
         return "/pruebas/listado";
     }
 
@@ -47,7 +41,6 @@ public class PruebasController {
     public String listado2(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
-
         return "/pruebas/listado2";
     }
 
@@ -56,11 +49,10 @@ public class PruebasController {
             @RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup,
             Model model) {
-        var productos = productoService.costuta1(precioInf, precioSup);
+        var productos = productoService.consulta1(precioInf, precioSup);
         model.addAttribute("productos", productos);
-        model.addAttribute("precioInf", productos);
-        model.addAttribute("precioSup", productos);
-
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
         return "/pruebas/listado2";
     }
 
@@ -69,11 +61,10 @@ public class PruebasController {
             @RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup,
             Model model) {
-        var productos = productoService.costuta2(precioInf, precioSup);
+        var productos = productoService.consulta2(precioInf, precioSup);
         model.addAttribute("productos", productos);
-        model.addAttribute("precioInf", productos);
-        model.addAttribute("precioSup", productos);
-
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
         return "/pruebas/listado2";
     }
 
@@ -82,11 +73,19 @@ public class PruebasController {
             @RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup,
             Model model) {
-        var productos = productoService.costuta3(precioInf, precioSup);
+        var productos = productoService.consulta3(precioInf, precioSup);
         model.addAttribute("productos", productos);
-        model.addAttribute("precioInf", productos);
-        model.addAttribute("precioSup", productos);
-
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
+        return "/pruebas/listado2";
+    }
+    
+        @GetMapping("/consulta4")
+    public String findByPrecioGreaterThanEqual(
+            @RequestParam(value = "precioSelect") double precioSelect, Model model) {
+        var productos = productoService.findByPrecioGreaterThanEqual(precioSelect);
+        model.addAttribute("productos", productos);
+        model.addAttribute("precioInf", precioSelect);
         return "/pruebas/listado2";
     }
 

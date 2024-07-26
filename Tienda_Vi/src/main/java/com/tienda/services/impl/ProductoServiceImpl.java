@@ -45,19 +45,26 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Producto> costuta1(double precioInf, double precioSup) {
+    public List<Producto> consulta1(double precioInf, double precioSup) {
         return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Producto> costuta2(double precioInf, double precioSup) {
+    public List<Producto> consulta2(double precioInf, double precioSup) {
         return productoDao.consulta2(precioInf, precioSup);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Producto> costuta3(double precioInf, double precioSup) {
+    public List<Producto> consulta3(double precioInf, double precioSup) {
         return productoDao.consulta3(precioInf, precioSup);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+   public List<Producto> findByPrecioGreaterThanEqual(double precioSelect) {
+        return productoDao.findByPrecioGreaterThanEqual(precioSelect);
+    }
+
 }

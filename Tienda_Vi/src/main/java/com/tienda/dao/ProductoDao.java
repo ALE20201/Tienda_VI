@@ -9,8 +9,10 @@ public interface ProductoDao
         extends JpaRepository<Producto, Long> {
 
     //se define una consulta ampliada considerando los atributos
-    public List<Producto> findByPrecioBetweenOrderByDescripcion(
-            double precioInf, double precioSup);
+    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup);
+    
+    //se define consulta ampliada considerando
+    public List<Producto> findByPrecioGreaterThanEqual(double precioSelect);
 
     //se define la misma consulta pero en sintaxis JPQL
     @Query(value = "SELECT a FROM Producto a "
