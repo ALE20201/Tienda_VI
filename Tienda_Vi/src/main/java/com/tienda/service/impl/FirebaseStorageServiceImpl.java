@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.tienda.services.impl;
+package com.tienda.service.impl;
 
 import com.google.auth.Credentials;
 import com.google.auth.ServiceAccountSigner;
@@ -12,7 +12,7 @@ import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.Storage.SignUrlOption;
 import com.google.cloud.storage.StorageOptions;
-import com.tienda.services.FirebaseStorageService;
+import com.tienda.service.FirebaseStorageService;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

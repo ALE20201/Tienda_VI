@@ -1,11 +1,11 @@
-package com.tienda.services.impl;
+package com.tienda.service.impl;
 
 import com.tienda.dao.CategoriaDao;
 import com.tienda.domain.Categoria;
-import com.tienda.services.CategoriaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.tienda.service.CategoriaService;
 
 
 @Service

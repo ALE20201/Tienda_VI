@@ -1,8 +1,8 @@
-package com.tienda.services.impl;
+package com.tienda.service.impl;
 
 import com.tienda.dao.ProductoDao;
 import com.tienda.domain.Producto;
-import com.tienda.services.ProductoService;
+import com.tienda.service.ProductoService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,5 @@
 
-package com.tienda.services;
+package com.tienda.service;
 
 import org.springframework.web.multipart.MultipartFile;
 

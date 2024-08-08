@@ -1,6 +1,6 @@
 package com.tienda.controller;
 
-import com.tienda.services.ProductoService;
+import com.tienda.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -2,8 +2,10 @@ package com.tienda;
 
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -21,7 +23,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
 public class ProjectConfig implements WebMvcConfigurer {
-
+    
     @Bean//para internalizacion
     public LocaleResolver localeResolver() {
         var slr = new SessionLocaleResolver();
@@ -38,11 +40,21 @@ public class ProjectConfig implements WebMvcConfigurer {
         lci.setParamName("lang");
         return lci;
     }
-
+    
     @Override
     public void addInterceptors(InterceptorRegistry registro) {
         registro.addInterceptor(localeChangeInterceptor());
     }
+
+    //este metodo se utiliza para enviar correos de activacion segun el idioma
+    @Bean("messageSource")
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
 
     /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
     @Override
@@ -52,7 +64,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
-
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -108,10 +120,10 @@ public class ProjectConfig implements WebMvcConfigurer {
      */
     @Autowired
     private UserDetailsService userDetailsService;
-
+    
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
         build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-
+    
 }

@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.tienda.services.impl;
+package com.tienda.service.impl;
 
 
 import com.tienda.dao.UsuarioDao;
 import com.tienda.domain.Rol;
 import com.tienda.domain.Usuario;
-import com.tienda.services.UsuarioDetailsService;
+import com.tienda.service.UsuarioDetailsService;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
