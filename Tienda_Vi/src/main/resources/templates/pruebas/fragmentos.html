@@ -27,9 +27,23 @@
             <div class="row row-cols-4">
                 <div class="card" th:each="p : ${productos}">
                     <figure>
-                        <<img th:src="${p.rutaImagen}" height="200" alt="alt"/>
-                        <figcaption>
+                        <img th:src="${p.rutaImagen}"
+                             height="200" 
+                             alt="alt"/>
+                        <figcaption class="d-flex justify-content-evenly">
                             ¢[[${p.precio}]] ([[${p.existencias}]])
+                            <form >
+                                <input type="hidden" 
+                                       name="idProducto"
+                                       th:value="${p.idProducto}" />
+                                <input type="hidden" 
+                                       name="existencias"
+                                       th:value="${p.existencias}" />
+                                <button class="btn btn-light"
+                                        type="button" onclick="addCart(this.form)"> 
+                            <i class="fas fa-cart-plus "></i>
+                                </button>
+                            </form>
                         </figcaption>
                     </figure>
                     <div class="card-header">
