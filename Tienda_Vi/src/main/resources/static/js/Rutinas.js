@@ -18,6 +18,8 @@ function addCart(formulario){
     if (existencias>0) {
         var url = "/carrito/agregar/"+ idProducto;
         $("#resultsBlock").load(url);
+    } else{
+        window.alert("no hay existencias...");
     }
 }
 
